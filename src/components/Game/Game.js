@@ -16,6 +16,7 @@ function Game() {
 
   console.log("🚀 ~ UserForm ~ guessList:", guessList);
   console.log("🚀 ~ Game ~ userGuess:", userGuess);
+  console.log("test");
 
   return (
     <div>

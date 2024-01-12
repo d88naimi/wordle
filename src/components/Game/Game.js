@@ -11,20 +11,14 @@ const answer = sample(WORDS);
 console.info({ answer });
 
 function Game() {
-  const [userGuess, setUserGuess] = useState("");
   const [guessList, setGuessList] = useState([]);
-
-  console.log("🚀 ~ UserForm ~ guessList:", guessList);
-  console.log("🚀 ~ Game ~ userGuess:", userGuess);
-  console.log("test");
 
   return (
     <div>
       <UserForm
-        userGuess={userGuess}
-        setUserGuess={setUserGuess}
         guessList={guessList}
         setGuessList={setGuessList}
+        answer={answer}
       />
       <Guess guessList={guessList} />
     </div>

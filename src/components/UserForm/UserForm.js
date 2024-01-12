@@ -1,6 +1,13 @@
 import React, { useState } from "react";
+import { checkGuess } from "../../game-helpers";
 
-function UserForm({ guessList, userGuess, setUserGuess, setGuessList }) {
+function UserForm({
+  guessList,
+
+  setGuessList,
+  answer,
+}) {
+  const [userGuess, setUserGuess] = useState("");
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
@@ -9,7 +16,8 @@ function UserForm({ guessList, userGuess, setUserGuess, setGuessList }) {
       id: Math.random(),
     };
 
-    const nextItems = [...guessList, newItem];
+    const checkedGuess = checkGuess(newItem.label, answer);
+    const nextItems = [...guessList, checkedGuess];
     setGuessList(nextItems);
     setUserGuess("");
   };

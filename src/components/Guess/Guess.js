@@ -1,5 +1,4 @@
 import React from "react";
-import { range } from "../../utils";
 
 function Guess({ guessList }) {
   const renderLetterCell = (letterObj, letterIndex) => {

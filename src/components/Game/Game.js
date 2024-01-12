@@ -12,6 +12,7 @@ console.info({ answer });
 
 function Game() {
   const [guessList, setGuessList] = useState([]);
+  const [gameStatus, setGameStatus] = useState("running");
 
   return (
     <div>
@@ -19,8 +20,25 @@ function Game() {
         guessList={guessList}
         setGuessList={setGuessList}
         answer={answer}
+        setGameStatus={setGameStatus}
       />
       <Guess guessList={guessList} />
+
+      {gameStatus === "won" && (
+        <div className="happy banner">
+          <p>
+            <strong>Congratulations!</strong> Got it in{" "}
+            <strong>{guessList.length} guesses</strong>.
+          </p>
+        </div>
+      )}
+      {gameStatus === "lost" && (
+        <div class="sad banner">
+          <p>
+            Sorry, the correct answer is <strong>{answer}</strong>.
+          </p>
+        </div>
+      )}
     </div>
   );
 }
